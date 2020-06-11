@@ -1,0 +1,29 @@
+@app-prefix-cls: ~'app';
+
+.@{app-prefix-cls} {
+    &-layout {
+        display: flex;
+        align-items: stretch;
+        height: 100%;
+
+        &-content {
+            flex: 1 1 auto;
+        }
+
+        &-side {
+            overflow: hidden;
+            overflow-y: auto;
+            position: relative;
+            z-index: 100;
+            flex: 0 0 420px;
+            padding: 24px;
+            width: 375px;
+            box-shadow: -4px 0 24px rgba(0, 0, 0, .15);
+        }
+    }
+
+    &-map-view {
+        width: 100%;
+        height: 100%;
+    }
+}

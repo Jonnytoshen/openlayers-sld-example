@@ -1,0 +1,41 @@
+<div class="app-layout">
+  <div class="app-layout-content">
+    <div class="app-map-view"></div>
+  </div>
+  <div class="app-layout-side">
+    <form nz-form nzLayout="vertical" [formGroup]="formGroup">
+      <nz-form-item>
+        <nz-form-label nzRequired>GeoJSON 数据</nz-form-label>
+        <nz-form-control>
+          <textarea rows="8" nz-input formControlName="geojson"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzRequired>数据坐标系</nz-form-label>
+        <nz-form-control>
+          <nz-select formControlName="dataProjection">
+            <nz-option [nzLabel]="'EPSG:4326'" [nzValue]="'EPSG:4326'"></nz-option>
+            <nz-option [nzLabel]="'EPSG:3857'" [nzValue]="'EPSG:3857'"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzRequired>SLD 样式</nz-form-label>
+        <nz-form-control>
+          <textarea rows="8" nz-input formControlName="sld"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzRequired>样式名称</nz-form-label>
+        <nz-form-control>
+          <input type="text" nz-input formControlName="name">
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button nzType="primary" nzBlock (click)="formGroupVallidator() && createLayer()">确定</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</div>
