@@ -1,0 +1,33 @@
+@file-preview-prefix-cls: ~'file-preview';
+
+.@{file-preview-prefix-cls} {
+    display: flex;
+    align-items: center;
+    height: 66px;
+    padding: 8px 16px 8px 8px;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+
+    &-thumbnail {
+        flex: 0 0 48px;
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        font-size: 26px;
+        color: #1890ff;
+    }
+
+    &-name {
+        flex: 1;
+    }
+
+    &-action {
+        flex: 0 0 auto;
+        color: #ff4d4f;
+    }
+
+    &:hover {
+        border-color: #1890ff;
+    }
+}

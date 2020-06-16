@@ -9,13 +9,25 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { zh_CN } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 registerLocaleData(zh);
 
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+
+import { AppRoutingModule } from './app-routing.module';
+import { DocumentComponent } from './document';
+import { FileComponent } from './file';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DocumentComponent,
+    FileComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +35,13 @@ registerLocaleData(zh);
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgZorroAntdModule
+    NzFormModule,
+    NzSelectModule,
+    NzButtonModule,
+    NzUploadModule,
+    NzInputModule,
+    NzIconModule,
+    AppRoutingModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

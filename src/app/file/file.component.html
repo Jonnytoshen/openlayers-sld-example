@@ -1,0 +1,70 @@
+<div nz-form nzLayout="vertical">
+    <nz-form-item>
+        <nz-form-label nzRequired>GeoJSON 文件</nz-form-label>
+        <nz-form-control>
+            <ng-container *ngIf="!geojson; else geojsonFileTemplate">
+                <nz-upload
+                nzType="drag"
+                [nzAccept]="'.geojson'"
+                [nzCustomRequest]="customRequest"
+                [nzMultiple]="false"
+                (nzChange)="onGeoJSONChange($event)">
+                    <p class="ant-upload-drag-icon">
+                        <i nz-icon nzType="inbox"></i>
+                    </p>
+                    <p class="ant-upload-text">单击或拖动文件到该区域以上传</p>
+                    <p class="ant-upload-hint">支持单个 GeoJSON 文件上传</p>
+                </nz-upload>
+            </ng-container>
+            <ng-template #geojsonFileTemplate>
+                <div class="file-preview">
+                    <div class="file-preview-thumbnail">
+                        <i nz-icon nzType="file" nzTheme="outline"></i>
+                    </div>
+                    <div class="file-preview-name">{{ geojson.name }}</div>
+                    <a class="file-preview-action" (click)="removeGeoJSONFile()">
+                        <i nz-icon nzType="delete" nzTheme="outline"></i>
+                    </a>
+                </div>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzRequired>SLD 文件</nz-form-label>
+        <nz-form-control>
+            <ng-container *ngIf="!styleSld; else styleSldFileTemplate">
+                <nz-upload
+                nzType="drag"
+                [nzAccept]="'.sld'"
+                [nzCustomRequest]="customRequest"
+                [nzMultiple]="false"
+                (nzChange)="onStyleSldChange($event)">
+                    <p class="ant-upload-drag-icon">
+                        <i nz-icon nzType="inbox"></i>
+                    </p>
+                    <p class="ant-upload-text">单击或拖动文件到该区域以上传</p>
+                    <p class="ant-upload-hint">支持单个 SLD 文件上传</p>
+                </nz-upload>
+            </ng-container>
+            <ng-template #styleSldFileTemplate>
+                <div class="file-preview">
+                    <div class="file-preview-thumbnail">
+                        <i nz-icon nzType="file" nzTheme="outline"></i>
+                    </div>
+                    <div class="file-preview-name">{{ styleSld.name }}</div>
+                    <a class="file-preview-action" (click)="removeStyleSldFile()">
+                        <i nz-icon nzType="delete" nzTheme="outline"></i>
+                    </a>
+                </div>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-control>
+            <button nz-button nzType="primary" nzSize="large" nzBlock (click)="onClickAddLayerButton()">确定</button>
+        </nz-form-control>
+    </nz-form-item>
+</div>
+
